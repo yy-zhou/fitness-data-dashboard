@@ -8,6 +8,6 @@ public class DataDashboardApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DataDashboardApplication.class, args);
-    }
 
+    }
 }
