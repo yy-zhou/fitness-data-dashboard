@@ -1,27 +1,39 @@
 package com.microsoft.datadashboard.controller;
 
+import com.microsoft.datadashboard.model.dao.DataDAO;
+import com.microsoft.datadashboard.model.dvo.DataDVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * Controller.
+ * Controller. Controller is depended on model.
+ * REST API.
  *
  * @author BorisMirage
  * Time: 2019/10/20 14:54
  * Created with IntelliJ IDEA
  */
 
-@RestController             // bind as a controller, equals as @Controller + @ResponseBody
+@RestController             // :== @Controller + @ResponseBody
 public class DataDashboardController {
+
+    @Autowired
+    private DataDAO dataDAO;        // private DataDAO data = new DataHashMapDAO(), if without spring
+
     /**
      * Hello world.
+     * Controller directly send response back to client as JSON by @ResponseBody.
      *
      * @return hello message
      */
-//    @RequestMapping(method = RequestMethod.GET)     // bind a router to current controller
     @GetMapping
-//    @ResponseBody       // controller directly send response back to client as JSON
     public String hello() {
         return "Checking the main page";
+    }
+
+    @GetMapping("/data/{id}")
+    public DataDVO get(@PathVariable Long id) {
+        return dataDAO.findById(id);
     }
 
     /**
@@ -30,10 +42,13 @@ public class DataDashboardController {
      * @param name given parameter
      * @return welcome message
      */
-//    @RequestMapping(value = "hello/{name}", method = RequestMethod.GET)
     @GetMapping("hello/{name}")
-//    @ResponseBody
     public String welcome(@PathVariable String name) {
         return "Welcome back, " + name;
+    }
+
+    @PostMapping("data")
+    public DataDVO createData(@RequestBody DataDVO data) {
+        return dataDAO.save(data);
     }
 }
