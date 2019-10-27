@@ -31,3 +31,6 @@ build/
 .vscode/
 
 .mvn/
+
+### MySQL ###
+docker-mysql/data
