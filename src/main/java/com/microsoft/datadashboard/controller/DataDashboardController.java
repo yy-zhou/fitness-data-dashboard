@@ -3,6 +3,7 @@ package com.microsoft.datadashboard.controller;
 import com.microsoft.datadashboard.model.dao.DataDAO;
 import com.microsoft.datadashboard.model.dvo.DataDVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController             // :== @Controller + @ResponseBody
 public class DataDashboardController {
 
+    @Qualifier("dataJPADAO")        // dependency injection
     @Autowired
     private DataDAO dataDAO;        // private DataDAO data = new DataHashMapDAO(), if without spring
 
