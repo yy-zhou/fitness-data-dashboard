@@ -26,10 +26,6 @@ public class DataDashboardController {
     @Autowired      // dependency injection
     private DataDAO dataDAO;        // private DataDAO data = new DataHashMapDAO(), if without spring
 
-//    @Autowired
-//    private Cache cache;
-
-
     /**
      * Hello world.
      * Controller directly send response back to client as JSON by @ResponseBody.
@@ -41,6 +37,12 @@ public class DataDashboardController {
         return "Checking the main page";
     }
 
+    /**
+     * Get data by id.
+     *
+     * @param id specific data id
+     * @return specific data with corresponding id
+     */
     @GetMapping("/data/{id}")
     public DataDVO get(@PathVariable Long id) {
         return dataDAO.findById(id);
@@ -57,22 +59,26 @@ public class DataDashboardController {
         return "Welcome back, " + name;
     }
 
+    /**
+     * Create a new data record in database.
+     *
+     * @param data new data
+     * @return created data
+     */
     @PostMapping("data")
     public DataDVO createData(@RequestBody DataDVO data) {
         return dataDAO.save(data);
     }
 
+    /**
+     * Get data based on specific data id.
+     *
+     * @param id data id
+     * @return data with corresponding id
+     */
     @GetMapping("/data/{id}")
     @Cacheable(value = "dataCache", key = "#id")        // cache name: dataCache, key of cache: id
     public DataDVO getDataById(@PathVariable Long id) {
-
-//        if (cache.get(id) != null) {
-//            return cache.get(id);
-//        } else {
-//            DataDVO tmp = dataDAO.findById(id);
-//            cache.put(id, tmp);
-//            return tmp;
-//        }
 
         return dataDAO.findById(id);
     }
@@ -105,6 +111,14 @@ public class DataDashboardController {
         return dataDAO.findByClientId(clientId, field, sort, start, end);
     }
 
+    /**
+     * Update data in database based on specific id and new data.
+     *
+     * @param id   data id
+     * @param data update data
+     * @return updated data
+     * @throws Exception if data id is not found in database
+     */
     @CachePut(value = "dataCache", key = "#id")
     @PutMapping("/data/{id}")
     public DataDVO putDataById(@PathVariable(name = "id") Long id, @RequestBody DataDVO data) throws Exception {
@@ -116,7 +130,6 @@ public class DataDashboardController {
             out.setStepCount(data.getStepCount());
             out.setTemperature(data.getTemperature());
             dataDAO.save(out);
-//            cache.put(data.getId(), data);
             return out;
         }
     }

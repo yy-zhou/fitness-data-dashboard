@@ -30,6 +30,13 @@ public interface DataDAO {
      */
     DataDVO findById(Long id);
 
+    /**
+     * Find all data, or find specific number of items based on limit.
+     * Limit string can be null if no limit parameter is passed.
+     *
+     * @param limit limit of items
+     * @return data within the limit
+     */
     List<DataDVO> findAll(String limit);
 
     List<DataDVO> findByClientId(Long clientId, String field, String sort, String start, String end);
