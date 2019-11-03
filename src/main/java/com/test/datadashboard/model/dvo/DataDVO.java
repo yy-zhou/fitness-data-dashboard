@@ -1,4 +1,4 @@
-package com.microsoft.datadashboard.model.dvo;
+package com.test.datadashboard.model.dvo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;

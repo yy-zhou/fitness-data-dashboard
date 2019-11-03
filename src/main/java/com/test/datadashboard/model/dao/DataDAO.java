@@ -1,6 +1,8 @@
-package com.microsoft.datadashboard.model.dao;
+package com.test.datadashboard.model.dao;
 
-import com.microsoft.datadashboard.model.dvo.DataDVO;
+import com.test.datadashboard.model.dvo.DataDVO;
+
+import java.util.List;
 
 /**
  * Data Access Object (DAO) interface (for decoupling).
@@ -27,4 +29,8 @@ public interface DataDAO {
      * @return corresponding DVO
      */
     DataDVO findById(Long id);
+
+    List<DataDVO> findAll(String limit);
+
+    List<DataDVO> findByClientId(Long clientId, String field, String sort, String start, String end);
 }
