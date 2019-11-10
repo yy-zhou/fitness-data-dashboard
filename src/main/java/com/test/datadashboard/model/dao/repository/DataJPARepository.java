@@ -18,7 +18,6 @@ public interface DataJPARepository extends JpaRepository<DataDVO, Long> {       
 
     // JPA config (customize)
     @Query(value = "SELECT * from data LIMIT :limit", nativeQuery = true)
-
     List<DataDVO> findAllByLimit(@Param("limit") Integer limit);
 
     List<DataDVO> findByClientId(Long clientID);        // all data DOV by specific client id
