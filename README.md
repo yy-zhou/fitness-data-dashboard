@@ -1,5 +1,3 @@
 # data-dashboard
-A dashboard sample to display fitness data.
 
-- Database: MySQL
-- Cache: Redis
+A data dashboard back end service sample. It exposes API to front end that can send data back from MySQL database.
