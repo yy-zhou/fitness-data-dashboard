@@ -34,3 +34,5 @@ build/
 
 ### MySQL ###
 docker-mysql/data
+
+src/
