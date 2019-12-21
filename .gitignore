@@ -34,5 +34,8 @@ build/
 
 ### MySQL ###
 docker-mysql/data
+docker-mongodb/data
 
-src/
+./src/
+mvnw
+*.cmd
