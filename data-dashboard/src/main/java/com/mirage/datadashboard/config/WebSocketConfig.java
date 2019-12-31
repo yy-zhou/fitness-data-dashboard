@@ -7,6 +7,8 @@ import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBr
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 
 /**
+ * WebSocket configuration.
+ *
  * @author BorisMirage
  * Time: 2019/12/30 17:48
  * Created with IntelliJ IDEA
