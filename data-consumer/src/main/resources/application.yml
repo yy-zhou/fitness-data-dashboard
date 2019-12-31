@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: data-consumer
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: healthdata_db
+
+server:
+  port: 9003                    # Eureka instance port
+
+eureka:
+  instance:
+    hostname: data-consumer         # Eureka instance host name
+  client:
+    serviceUrl:
+      defaultZone: http://service-registry:8761/eureka/
