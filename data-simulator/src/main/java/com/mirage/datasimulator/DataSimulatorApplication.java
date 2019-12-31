@@ -13,6 +13,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
+/**
+ * Main application for data simulator.
+ * Generate random data for API to test availability.
+ */
 @SpringBootApplication
 public class DataSimulatorApplication {
 
@@ -25,6 +29,11 @@ public class DataSimulatorApplication {
     private static final Timer TIMER = new Timer();
     private static final int INTERVAL = 1000;
 
+    /**
+     * Main application.
+     *
+     * @param args arguments
+     */
     public static void main(String[] args) {
         SpringApplication.run(DataSimulatorApplication.class, args);
         TIMER.scheduleAtFixedRate(new TimerTask() {
@@ -40,6 +49,11 @@ public class DataSimulatorApplication {
         }, 0, INTERVAL);
     }
 
+    /**
+     * Generate random integer with error data to test if system can handle incorrect data.
+     *
+     * @return random integer
+     */
     private static double generateRandomValue() {
         int randInt = RANDOM.nextInt(5);
         if (randInt == 0) {
