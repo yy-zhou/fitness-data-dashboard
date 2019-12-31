@@ -11,4 +11,3 @@ Combined with data ingestion to pre-process raw input data from client and publi
 Use Netflix Eureka to discover and register those microservices above for higher availability.
 
 For testing, a data simulator is implemented to generate random data for data APIs testing.
-
