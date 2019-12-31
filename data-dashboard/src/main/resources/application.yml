@@ -6,3 +6,13 @@ spring:
     port: 5672
     username: guest
     password: guest
+
+server:
+  port: 9004                    # port of current service in Eureka
+
+eureka:
+  instance:
+    hostname: data-dashboard         # host name of instance in Eureka
+  client:
+    serviceUrl:
+      defaultZone: http://service-registry:8761/eureka/
