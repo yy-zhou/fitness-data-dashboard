@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
- * Raw data format for testing.
+ * Raw data format.
  *
  * @author BorisMirage
  * Time: 2019/12/22 12:44
