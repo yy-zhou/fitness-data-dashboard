@@ -1,9 +1,7 @@
-package com.mirage.datadashboard.Controller;
+package com.mirage.datadashboard.controller;
 
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 
 /**

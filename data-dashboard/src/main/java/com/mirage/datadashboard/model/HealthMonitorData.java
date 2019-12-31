@@ -1,4 +1,4 @@
-package com.mirage.datadashboard.Model;
+package com.mirage.datadashboard.model;
 
 import java.io.Serializable;
 import java.util.Date;
