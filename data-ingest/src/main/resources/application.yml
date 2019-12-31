@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: data-ingest
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+server:
+  port: 9001                    # port in Eureka
+
+eureka:
+  instance:
+    hostname: data-ingest         # Host name in Eureka
+  client:
+    serviceUrl:
+      defaultZone: http://service-registry:8761/eureka/
