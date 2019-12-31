@@ -9,6 +9,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 /**
+ * Handle raw data with data validity check.
+ *
  * @author BorisMirage
  * Time: 2019/12/30 15:09
  * Created with IntelliJ IDEA
