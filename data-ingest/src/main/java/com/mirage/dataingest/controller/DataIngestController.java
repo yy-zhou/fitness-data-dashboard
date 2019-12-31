@@ -15,6 +15,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import javax.validation.Valid;
 
 /**
+ * Data ingest controller.
+ * HTTP post request will send data from wearable devices.
+ * Pre-process it to convert data from post request to modeled data.
+ * Then send it to MQ, MQ will be responsible for sending data to corresponding consumer.
+ *
  * @author BorisMirage
  * Time: 2019/12/30 16:39
  * Created with IntelliJ IDEA
@@ -30,6 +35,12 @@ public class DataIngestController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DataIngestController.class);
 
+    /**
+     * Convert raw HTTP post data into data that MQ can accept and send to corresponding consumer.
+     *
+     * @param rawData raw data from HTTP request
+     * @return converted fitness monitor data
+     */
     @PostMapping("ingest/fitnessdata")  // validate payload from request body
     public FitnessMonitorData ingest(@Valid @RequestBody FitnessMonitorRawData rawData) {
         FitnessMonitorData data = preprocess(rawData);
@@ -41,6 +52,12 @@ public class DataIngestController {
         return data;
     }
 
+    /**
+     * Pre-process HTTP post data and constructed it to modeled data by pre-defined structure.
+     *
+     * @param rawData raw data from HTTP request
+     * @return converted fitness monitor data
+     */
     private FitnessMonitorData preprocess(FitnessMonitorRawData rawData) {
         FitnessMonitorData data = new FitnessMonitorData();
         data.setBloodPressure(Math.round(rawData.getBloodPressure() * 100.0) / 100.0);
