@@ -14,4 +14,4 @@ For testing, a data simulator is implemented to generate random data for data AP
 
 The structure of this project is shown below.
 
-![Overview](overview.jpg)
+![Overview](overview.png)
